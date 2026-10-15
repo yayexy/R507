@@ -59,3 +59,13 @@ jobs:
         with:
           file: ./coverage.xml
           fail_ci_if_error: true
+      
+      - name: PHPStan Static Analysis
+        run: vendor/bin/phpstan analyse
+      
+      - name: PHP CS Fixer
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff
+      
+      - name: Security Check
+        run: |
+          symfony check:security

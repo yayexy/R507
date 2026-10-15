@@ -8,3 +8,7 @@ parameters:
     - src
   symfony:
     containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+  ignoreErrors:
+    -
+      identifier: property.unusedType
+      path: src/Entity/*
